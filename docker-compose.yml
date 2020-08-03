@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  
+  web:
+    image: node:14.7
+    container_name: blog_web
+    #  depends_on:
+    #  - graph-front
+    working_dir: /app/my_app
+    entrypoint: ["npm", "run", "install_and_dev"]
+    ports:
+      - 3000:3000
+    volumes:
+      - ./my_app:/app/my_app
+    networks:
+      - blognet
+
+# graphql engine
+  graph-front:
+    image: hasura/graphql-engine:v1.3.0
+    container_name: blog_graphql
+    ports:
+      - 8080:8080
+    depends_on:
+      - graph-back
+    restart: always
+    environment:
+      # https://github.com/hasura/graphql-engine/blob/stable/install-manifests/docker-compose/docker-compose.yaml
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:password@blog_postgres:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console\
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+    networks:
+      - blognet
+
+# postgres db to support graphql engine
+  graph-back:
+    image: postgres:12
+    container_name: blog_postgres
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+    networks:
+      - blognet
+
+networks:
+  blognet:
+    driver: bridge
+
