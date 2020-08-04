@@ -1,5 +1,6 @@
 import {gql, useQuery} from '@apollo/client'
 import Link from "next/link";
+import CommentList from "./CommentList";
 
 export default function Post({uid}){
 
@@ -36,6 +37,9 @@ export default function Post({uid}){
                 </Link>
             </p>
             <p>{mPost.content}</p>
+            <section>
+                <CommentList uid={mPost.uid}/>
+            </section>
         </div>
     )
 }
