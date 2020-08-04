@@ -1,6 +1,7 @@
 
 import {gql, useQuery} from '@apollo/client'
 import Link from "next/link";
+import PostPreview from "./PostPreview";
 
 export default function PostList(){
 
@@ -30,12 +31,5 @@ export default function PostList(){
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error </p>;
 
-    return data.Blog.map(post => (
-            <section key={post.uid}>
-                <Link href={"/post/"+post.uid} >
-                    <a><h1>{post.title}</h1></a>
-                </Link>
-                <p>{post.content}</p>
-            </section>
-    ))
+    return data.Blog.map(post => <PostPreview post={post}/> )
 }
