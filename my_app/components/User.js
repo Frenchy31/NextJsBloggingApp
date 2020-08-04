@@ -35,6 +35,7 @@ export default function User({uid}){
             <ul>
                 <li><p>Tél : {mUser.phone}</p></li>
                 <li><p>Mail : {mUser.mail}</p></li>
+                <li><p>Website : {mUser.website}</p></li>
             </ul>
             <h2>Posts : </h2>
             <ul>

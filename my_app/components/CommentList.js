@@ -13,6 +13,7 @@ export default function CommentList({uid}) {
               User {
                 firstName
                 lastName
+                mail
                 uid
               }
             }

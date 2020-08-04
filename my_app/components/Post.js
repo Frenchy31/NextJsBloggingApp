@@ -1,6 +1,7 @@
 import {gql, useQuery} from '@apollo/client'
 import Link from "next/link";
 import CommentList from "./CommentList";
+import {CopyToClipboard} from "react-copy-to-clipboard/lib/Component";
 
 export default function Post({uid}){
 
@@ -37,6 +38,7 @@ export default function Post({uid}){
                 </Link>
             </p>
             <p>{mPost.content}</p>
+            <CopyToClipboard text={window.location.href}><button>Share</button></CopyToClipboard>
             <section>
                 <CommentList uid={mPost.uid}/>
             </section>
