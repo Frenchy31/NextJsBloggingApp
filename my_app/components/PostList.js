@@ -1,5 +1,6 @@
 
 import {gql, useQuery} from '@apollo/client'
+import Link from "next/link";
 
 export default function PostList(){
 
@@ -31,7 +32,9 @@ export default function PostList(){
 
     return data.Blog.map(post => (
             <section key={post.uid}>
-                <h3>{post.title}</h3>
+                <Link href={"/post/"+post.uid} >
+                    <a><h1>{post.title}</h1></a>
+                </Link>
                 <p>{post.content}</p>
             </section>
     ))

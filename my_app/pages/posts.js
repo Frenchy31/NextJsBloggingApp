@@ -9,7 +9,7 @@ export default function posts(){
     return (
         <ApolloProvider client={MyApolloClient}>
             <div>
-                <h1>All my posts</h1>
+                <h1>Les posts d'Aubing</h1>
                 <PostList />
             </div>
         </ApolloProvider>
