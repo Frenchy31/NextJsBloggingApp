@@ -46,16 +46,18 @@ docker-compose up -d web
 
 ## Node Modules Dependencies List
 ### DB Handlers
-- [ApolloClient]():^3.0.0
-- [Graphql]():^15.3.0
+- ApolloClient:^3.0.0
+- Graphql:^15.3.0
 ### Scripts
-- [Next]():^9.5.1   
-- [React]():16.13.1
-- [ReactCopyToClipboard]():^5.0.2
+- Next:^9.5.1   
+- React:16.13.1
+- ReactCopyToClipboard:^5.0.2
 ### Styles
-- [Bootstrap]():^4.5.1
-- [ReactBootsrap]():^1.3.0
+- Bootstrap:^4.5.1
+- ReactBootsrap:^1.3.0
 
+## [Data Link](https://drive.google.com/file/d/1LB3vQiT9nS9Y2V0VLGbyHaZrkv-hfLXD/view?usp=sharing) to populate the database
+Place it inside app folder
 
 ## TODO and notes
 - [ ] volumes permissions in docker
