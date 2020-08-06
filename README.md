@@ -44,5 +44,20 @@ docker-compose up -d web
 ```
 - when ready, [open webapp](http://localhost:3000)
 
+## Node Modules Dependencies List
+### DB Handlers
+- [ApolloClient]():^3.0.0
+- [Graphql]():^15.3.0
+### Scripts
+- [Next]():^9.5.1   
+- [React]():16.13.1
+- [ReactCopyToClipboard]():^5.0.2
+### Styles
+- [Bootstrap]():^4.5.1
+- [ReactBootsrap]():^1.3.0
+
+
 ## TODO and notes
 - [ ] volumes permissions in docker
+
+

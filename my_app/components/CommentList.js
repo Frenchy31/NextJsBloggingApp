@@ -1,8 +1,14 @@
 import {gql, useQuery} from '@apollo/client'
-import Link from "next/link";
 import Comment from "./Comment";
 
+/**
+ * Comment List Section
+ * @param uid
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function CommentList({uid}) {
+    //GraphQl Query fetching comments from one post
     const {loading, error, data} = useQuery(gql`
         query Get_Comment_List($uid: Int!) {
           Blog_by_pk(uid: $uid) {
