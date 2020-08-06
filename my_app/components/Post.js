@@ -52,7 +52,7 @@ export default function Post({uid}){
                                 <a>{mPost.User.firstName} {mPost.User.lastName}</a>
                             </Link>
                             <p>{mPost.content}</p>
-                            <CopyToClipboard text={window.location.href}><Button onClick={() => setShow(true)}>Share</Button></CopyToClipboard>
+                            {window && <CopyToClipboard text={window.location.href}><Button onClick={() => setShow(true)}>Share</Button></CopyToClipboard>}
                             <div style={{
                                 width: '100px',
                                 marginTop:'10px',

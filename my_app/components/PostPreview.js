@@ -33,7 +33,7 @@ export default function PostPreview({post}){
                                 </Link>
                             </h5>
                             <p>{post.content.substring(0,PREVIEW_LENGTH)}...</p>
-                            <CopyToClipboard text={window.location.href.replace('/posts', '') + hrefPost}><Button onClick={() => setShow(true)}>Share</Button></CopyToClipboard>
+                            {window && <CopyToClipboard text={window.location.href.replace('/posts', '') + hrefPost}><Button onClick={() => setShow(true)}>Share</Button></CopyToClipboard>}
                         </section>
                         <div style={{
                             width: '100px',

@@ -3,6 +3,12 @@ import Link from "next/link";
 import {Jumbotron, Container, Row, Col, Card} from "react-bootstrap";
 import CustomNav from "./CustomNav";
 
+/**
+ * User Card Page
+ * @param uid
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function User({uid}){
     const {loading, error, data} = useQuery(gql`
         query getOneUser($uid: Int!) {
