@@ -1,7 +1,9 @@
 import {gql, useQuery} from '@apollo/client'
 import Link from "next/link";
-import {Jumbotron, Container, Row, Col, Card} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import CustomNav from "./CustomNav";
+import UserPostsList from "./UserPostsList"
+import {UserCard} from "./UserCard";
 
 /**
  * User Card Page
@@ -38,45 +40,25 @@ export default function User({uid}){
     const mUserBlogs = data.User_by_pk.Blogs
     return (
         <>
-        <CustomNav/>
-        <Container>
-            <Row>
-                <Col md={{ span:4, offset: 4}}>
-                    <div style={{marginTop: '3em'}}>
-                        <Card className="text-center">
-                            <Card.Header>
-                                <h3>{mUser.firstName} {mUser.lastName}</h3>
-                            </Card.Header>
-                            <Card.Body>
-                                <p>Tél : {mUser.phone}</p>
-                                <p>Mail : <a href={"mailTo:" +mUser.mail}>{mUser.mail}</a></p>
-                                <p>Website : {mUser.website}</p>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
-            </Row>
-            { mUser.Blogs.length > 0 &&
+            <CustomNav/>
+            <Container>
                 <Row>
-                    <Col md={{ span:4, offset: 4}}>
-                        <div style={{marginTop: '1em'}}>
-                            <Jumbotron>
-                                <h2>Posts : </h2>
-                                    <ol>
-                                        { mUserBlogs.map( blog=> (
-                                            <li>
-                                                <Link href={"/post/"+blog.uid}>
-                                                    <a>{ blog.title}</a>
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ol>
-                            </Jumbotron>
+                    <Col md={{span: 4, offset: 4}}>
+                        <div style={{marginTop: '3em'}}>
+                            <UserCard mUser={mUser}/>
                         </div>
                     </Col>
                 </Row>
-            }
-        </Container>
-            </>
+                {mUser.Blogs.length > 0 &&
+                <UserPostsList mUserBlogs={mUserBlogs} element={blog => (
+                    <li>
+                        <Link href={"/post/" + blog.uid}>
+                            <a>{blog.title}</a>
+                        </Link>
+                    </li>
+                )}/>
+                }
+            </Container>
+        </>
     )
 }

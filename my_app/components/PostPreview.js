@@ -1,7 +1,9 @@
+import {gql, useQuery} from '@apollo/client'
 import Link from "next/link";
 import {CopyToClipboard} from "react-copy-to-clipboard/lib/Component";
 import {Jumbotron, Container, Row, Col, Button, Toast} from "react-bootstrap";
 import {useState} from "react";
+import ShareButton from "./ShareButton";
 
 // Post content Preview Max Length
 const PREVIEW_LENGTH = 90
@@ -33,16 +35,8 @@ export default function PostPreview({post}){
                                 </Link>
                             </h5>
                             <p>{post.content.substring(0,PREVIEW_LENGTH)}...</p>
-                            {window && <CopyToClipboard text={window.location.href.replace('/posts', '') + hrefPost}><Button onClick={() => setShow(true)}>Share</Button></CopyToClipboard>}
+                            <ShareButton link={window.location.href.replace('/posts', '') + hrefPost}/>
                         </section>
-                        <div style={{
-                            width: '100px',
-                            top:'20px',
-                        }}>
-                            <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
-                                <Toast.Body>Lien copié !</Toast.Body>
-                            </Toast>
-                        </div>
                     </Jumbotron>
                 </Col>
             </Row>
