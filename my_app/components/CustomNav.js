@@ -1,5 +1,5 @@
 import {Nav} from "react-bootstrap";
-import Link from "next";
+import React from "react";
 
 /**
  * Nav Component
@@ -9,7 +9,7 @@ import Link from "next";
 export default function CustomNav () {
     return(
         <Nav.Item>
-            <Nav.Link href={"/posts"}>Posts</Nav.Link>
+            <Nav.Link href={"/posts/1"}>Posts</Nav.Link>
         </Nav.Item>
     )
 }

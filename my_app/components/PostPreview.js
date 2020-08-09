@@ -4,9 +4,7 @@ import {CopyToClipboard} from "react-copy-to-clipboard/lib/Component";
 import {Jumbotron, Container, Row, Col, Button, Toast} from "react-bootstrap";
 import {useState} from "react";
 import ShareButton from "./ShareButton";
-
-// Post content Preview Max Length
-const PREVIEW_LENGTH = 90
+import {PREVIEW_LENGTH} from '../lib/constants'
 
 /**
  * Component PostPreview

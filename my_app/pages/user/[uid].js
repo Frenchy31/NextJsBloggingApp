@@ -1,10 +1,10 @@
-
 import {ApolloProvider} from "@apollo/client";
 
 import { useRouter } from 'next/router'
 
 import MyApolloClient from "../../lib/MyApolloClient";
 import User from "../../components/User";
+import React from "react";
 
 //Simple User rendering page
 export default function user(){

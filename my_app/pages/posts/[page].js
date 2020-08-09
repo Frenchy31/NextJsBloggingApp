@@ -1,12 +1,14 @@
+import {useRouter} from "next/router";
 import {ApolloProvider} from "@apollo/client";
+import PostList from "../../components/PostList";
+import MyApolloClient from "../../lib/MyApolloClient";
+import React from "react";
+import CustomNav from "../../components/CustomNav";
+import {Col, Container, Row} from "react-bootstrap";
 
-import MyApolloClient from "../lib/MyApolloClient";
-import PostList from "../components/PostList";
-import {Nav,Container,Row, Col} from "react-bootstrap";
-import CustomNav from "../components/CustomNav";
-
-//Todo : Paginate posts
 export default function posts(){
+    const router = useRouter()
+    const {page} = router.query
     return (
         <ApolloProvider client={MyApolloClient}>
             <CustomNav/>
@@ -15,9 +17,9 @@ export default function posts(){
                     <Col md="auto">
                         <h1>Mon blog</h1>
                     </Col>
-                    <PostList />
+                    <PostList page={page}/>
                 </Row>
             </Container>
         </ApolloProvider>
-    );
+    )
 }

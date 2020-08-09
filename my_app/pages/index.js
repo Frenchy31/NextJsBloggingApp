@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from "next/link";
-import {Nav} from "react-bootstrap";
-import {ApolloProvider} from "@apollo/client";
+import React from "react";
 
 export default function Home() {
   return (
@@ -17,7 +16,7 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-        <Link href="./posts" >
+        <Link href="./posts/1" >
           <a className={styles.card}>
             <h3>All posts &rarr;</h3>
             <p>You will see all my posts</p>

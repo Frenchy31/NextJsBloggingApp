@@ -1,6 +1,6 @@
 import {CopyToClipboard} from "react-copy-to-clipboard/lib/Component";
 import {Button, Toast} from "react-bootstrap";
-import {useState} from "react";
+import React, {useState} from "react";
 
 export default function ShareButton({link}) {
     //Initialize Toast Hook

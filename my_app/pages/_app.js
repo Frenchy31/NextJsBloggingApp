@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Nav} from "react-bootstrap";
+import React from "react";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
